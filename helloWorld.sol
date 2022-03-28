@@ -1,6 +1,6 @@
 /// SPDX-License-Identifier: UNLICENSED
 
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.0;
 
 contract helloWorld {
     struct User {
@@ -9,15 +9,13 @@ contract helloWorld {
 
     User[] users;
 
-    function createUser(string memory _name) public {
+    function createUser(string memory _name) public  {
         User memory usr = User(_name);
-        users.push[usr];
+        users.push(usr);
     }
-
-    function print(User memory usr) public pure returns (string) {
-        for (uint16 i = 0; i < users.length; i++) {
-            if (users[i] == usr) return "Hello World! my name is " + usr.name;
-        }
-        return "Hello World!";
-    }
+    
+    function printName(User memory usr) public pure returns(string memory) {
+        return string(abi.encodePacked("Hello World my name is", usr.name ));
+    }        
+    
 }
